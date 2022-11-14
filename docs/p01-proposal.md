@@ -89,7 +89,7 @@ have cancer before they were actually diagnosed. Also, they may move to other st
 will make our data on locating the cases very unclear.
 
 **Research questions**:
-- What is the success ratio in different cancer treatments for different types?
+- Which risks factors accounts for the most cancer cases in the US
 - Is there a relationship between areas of living and the chance of having cancer?
 - Is there a relationship between ages and the chance of having cancer?
 
@@ -107,7 +107,7 @@ obtain evidence for our answers to our research questions.
 
 _File Description_:
 
-[Cancer Types Grouped by Areas](/Users/quynhanh/Documents/info201/project/project-group-3-section-aa/data/cancer_by_areas.csv):
+[Cancer Types Grouped by Areas](https://www.johnsnowlabs.com/marketplace/cancer-types-grouped-by-area/):
 
 a)Who: John Snows Lab
   When: last updated 2019
@@ -121,7 +121,8 @@ c)CDC validates the data
 d) I searched on data.world
 
 
-[Cancer Types Grouped by Age](/Users/quynhanh/Documents/info201/project/project-group-3-section-aa/data/cancer_by_ages.csv):
+[Cancer Types Grouped by Age](https://www.johnsnowlabs.com/marketplace/cancer-types-grouped-by-age/):
+
 a)Who: John Snows Lab
   When: last updated 2019
   Purpose: collect data under the Cancer Registries Amendment Act
@@ -133,7 +134,8 @@ c)CDC validates the data
 
 d) I searched on data.world
 
-[Cancer Risk Factors](/Users/quynhanh/Documents/info201/project/project-group-3-section-aa/data/cancer_risk_factors.xlsx):
+[Cancer Risk Factors](https://canceratlas.cancer.org/risk-factors/):
+
 a)Who: The Cancer Atlas
   When: since 2019
   Purpose: provide information on risk factors of cancers for advocates, government,
