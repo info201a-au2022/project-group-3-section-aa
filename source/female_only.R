@@ -41,7 +41,7 @@ View(latest_year)
 #select cases for female for all races
 female_cases <- latest_year %>% 
   filter(ethnicity == "All Races") %>% 
-  filter(gender == "Female")
+  filter(gender == "Female") %>% 
   select(gender, ethnicity, age_group, cases, population, frequency)
 View(female_cases)
 
