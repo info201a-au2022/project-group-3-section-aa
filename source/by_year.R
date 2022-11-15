@@ -2,7 +2,7 @@
 library(ggplot2)
 library(dplyr)
 
-cancer_file <- "/Users/quynhanh/Documents/info201/project/project-group-3-section-aa/data/cancer_by_ages.csv"
+cancer_file <- "https://raw.githubusercontent.com/info201a-au2022/project-group-3-section-aa/main/data/cancer_by_ages.csv"
 ages <- read.csv(cancer_file, header = TRUE, stringsAsFactors = FALSE)
 View(ages)
 
@@ -41,4 +41,4 @@ View(cases_2010)
 #chart
 chart <- ggplot(data, aes(x=start_year, y=total_cases)) +
   geom_line()
-chart
+View(chart)
