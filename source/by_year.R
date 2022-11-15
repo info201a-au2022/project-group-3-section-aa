@@ -21,7 +21,7 @@ data <- ages %>%
   filter(Cancer_Event_Type == "Mortality") %>% 
   filter(ethnicity == "All Races") %>% 
   filter(start_year == max(start_year, na.rm = TRUE)) %>% 
-  summarise(total_cases = sum(cases, na.rm = TRUE))
+  mutate(total_cases = sum(cases, na.rm = TRUE))
 View(data)
 
 cases_2012 <- data <- ages %>% 
@@ -39,6 +39,6 @@ cases_2010 <- data <- ages %>%
 View(cases_2010)
 
 #chart
-chart <- ggplot(data, aes(x=start_year, y=total_cases)) +
+chart <- ggplot(data, aes(x=start_year, y=total_cases)) + 
   geom_line()
-View(chart)
+chart
