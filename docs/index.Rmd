@@ -1,5 +1,5 @@
 ---
-title: "Cancer Hazard"
+title: "Cancer in the U.S: Cancer Hazard"
 author: "Allison Ho, Vicky Huang, Lolly Zhao"
 date: "11/14/2022"
 output: html_document
@@ -11,17 +11,14 @@ library("dplyr")
 library("knitr")
 ```
 
-## What is this file for?
-In this file we are here to  analyze datasets of various cancer types and their treatments in different parts of the United States Also, we have data visualization on different cancer cases related to different races.
+## Introduction: Cancer Hazard 
+ We are here to analyze datasets of various cancer types and their treatments in different parts of the United States Also, we have data visualization on different cancer cases related to different races.
+## Purpose:
 Our purpose of this project is not only aiming to assist people in this community to reduce their number of cases and increase survival rates based on our insightful analysis, but we also want our project to make people pay more attention to cancer prevention.
+* Cases/gender/ages/ethnicity
 
-
-* This file will eventually become your project report for **P02: Exploratory Data Analysis**. Specifically, you will write rmarkdown to report your exploratory data analysis.
-
-* Please see Canvas for more details.
-
-## ACCESSING THE /source DIRECTORY
-### Example 1: In this By_races source. We using the source that we loaded and form a data sets with age_group", "cases", "population", "ethnicity", "frequency",  "gender". We have the cancer cases by different ethnicity and find the proportion by using the each ethnicity cases dividing the total cases. And here is the our source, and the code is below.
+## ACCESSING THE Source / DIRECTORY
+###: Here are our four sourcese. We drag data from John Snow Labs to analysis the our cancer cases. For exmaple, in the By_races source. We using the source that we loaded and form a data sets with age_group", "cases", "population", "ethnicity", "frequency",  "gender". We have the cancer cases by different ethnicity and find the proportion by using the each ethnicity cases dividing the total cases. And here is the our source, and the code is below.
 
 ```{r, echo = TRUE}
 source("../source/by_races.R")
@@ -30,10 +27,9 @@ source("../source/by_year.R")
 source("../source/table.R")
 ```
 
-### Example 2: Initialize a variable and then use it
+## ABOUT THIS TABLE: Here we include the table that the total cancer cases in different group ages. In our data visualization, we want to show that how ages influence chances that people get the cancer. And we want to explore which age range would have highly chance to get the cancers. So that people in that age group or who later on will be in this age group pay more attention to this disease.
 ```{r}
 kable(by_age_groups)
-
 ```
 
 
@@ -48,14 +44,18 @@ When you click the **Knit** button a document will be generated that includes bo
 
 ```
 
-## Including Plots
+## Including Charts:
 
-You can also embed plots, for example:
+Here we have three charts here. Pie chart, bar chart.The purpose of haveing the chart to get an idea of the proportion of cancer cases according to
+ethnicity, and year, and gender. For exmaple, from the by_races_chart, people from different ethinicity will different amount cases of to get the cancer.
+from by_year_chart, people who see will have better understanding of the trend of the cancer cases in the US throughout the years.ALso, from female_only_chart, we would have which age group would have the most cancer cases in the US.
+
 
 ```{r echo=FALSE}
-chart_female
-chart_races
-chart_year
+female_only_chart
+by_races_chart
+by_year_chart
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+

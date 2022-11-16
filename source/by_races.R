@@ -40,11 +40,11 @@ by_races_chart <- ggplot(by_races, aes(x = "", y = prop, fill=ethnicity)) +
   coord_polar("y", start=0)
 by_races_chart
 
-<<<<<<< HEAD
-=======
+# Head
+
 #I include this chart to get an idea of the proportion of cancer cases according to
 #ethnicity. From the chart, a large proportion of cancer cases are white people, followed
 #by Black, then Hispanic, Asian/Pacific Islander and then American Indian/Alaska Native.
 #This graph gives me an insight to whether ethnicity and their unique genes, DNA have
 #any impact on the chance of a person having cancer.
->>>>>>> 99da05b19f11709459cdc98ff25fd5a34562d25e
+
