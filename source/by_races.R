@@ -1,7 +1,7 @@
-
 library(ggplot2)
-library(tidyverse)
-cancer_file <- "https://raw.githubusercontent.com/info201a-au2022/project-group-3-section-aa/main/data/cancer_by_ages.csv"
+library(dplyr)
+
+cancer_file <- "https://raw.githubusercontent.com/info201a-au2022/project-group-3-section-aa/main/data/by_age_groups.csv"
 ages <- read.csv(cancer_file, header = TRUE, stringsAsFactors = FALSE)
 
 #change columns name
@@ -19,12 +19,10 @@ data <- ages %>%
   filter(Cancer_Event_Type == "Mortality") %>% 
   select(ethnicity, cases)
 
-
 #get cases for each race
 by_races <- data %>% 
   group_by(ethnicity) %>% 
   summarise(total_cases = sum(cases, na.rm = TRUE))
-
 
 #get the number of cases for all races
 all_races_total_cases <- by_races %>% 
@@ -37,8 +35,16 @@ by_races <- by_races %>%
 by_races <- by_races[-1,]
 
 #chart
-chart_races <- ggplot(by_races, aes(x = "", y = prop, fill=ethnicity)) +
+by_races_chart <- ggplot(by_races, aes(x = "", y = prop, fill=ethnicity)) +
   geom_bar(stat="identity", width=1) +
   coord_polar("y", start=0)
-chart_races
+by_races_chart
 
+<<<<<<< HEAD
+=======
+#I include this chart to get an idea of the proportion of cancer cases according to
+#ethnicity. From the chart, a large proportion of cancer cases are white people, followed
+#by Black, then Hispanic, Asian/Pacific Islander and then American Indian/Alaska Native.
+#This graph gives me an insight to whether ethnicity and their unique genes, DNA have
+#any impact on the chance of a person having cancer.
+>>>>>>> 99da05b19f11709459cdc98ff25fd5a34562d25e

@@ -2,9 +2,8 @@ library(ggplot2)
 library(dplyr)
 
 #read the dataset
-cancer_file <- "https://raw.githubusercontent.com/info201a-au2022/project-group-3-section-aa/main/data/cancer_by_ages.csv" [raw.githubusercontent.com]
+cancer_file <- "https://raw.githubusercontent.com/info201a-au2022/project-group-3-section-aa/main/data/by_age_groups.csv"
 ages <- read.csv(cancer_file, header = TRUE, stringsAsFactors = FALSE)
-View(ages)
 
 #change columns name
 colnames(ages)[1] <- "age_group"
