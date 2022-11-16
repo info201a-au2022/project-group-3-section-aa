@@ -16,21 +16,23 @@ colnames(ages)[9] <- "gender"
 colnames(ages)[11] <- "start_year"
 
 #used data columns
-data <- ages %>% 
-  filter(Cancer_Organ_Site == "All Cancer Sites Combined") %>% 
-  filter(Cancer_Event_Type == "Mortality") %>% 
-  filter(ethnicity == "All Races")
-View(data)
-
-#get the total cases for each year
-data <- data %>% 
-  group_by(start_year) %>% 
-  summarise(total_cases = sum(cases)) %>% 
-  select(start_year, total_cases)
-View(data)
-
+by_year_chart <- function() {
+  data <- ages %>% 
+    filter(Cancer_Organ_Site == "All Cancer Sites Combined") %>% 
+    filter(Cancer_Event_Type == "Mortality") %>% 
+    filter(ethnicity == "All Races")
   
-#chart
-chart <- ggplot(data, aes(x=start_year, y=total_cases)) + 
-  geom_line()
-chart
+  #get the total cases for each year
+  data <- data %>% 
+    group_by(start_year) %>% 
+    summarise(total_cases = sum(cases)) %>% 
+    select(start_year, total_cases)
+  
+  #chart
+  chart <- ggplot(data, aes(x=start_year, y=total_cases)) + 
+    geom_line()
+  
+  return(chart)
+}
+
+
