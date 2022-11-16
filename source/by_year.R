@@ -1,7 +1,7 @@
 library(ggplot2)
 library(dplyr)
 
-cancer_file <- "https://raw.githubusercontent.com/info201a-au2022/project-group-3-section-aa/main/data/cancer_by_ages.csv"
+cancer_file <- "https://raw.githubusercontent.com/info201a-au2022/project-group-3-section-aa/main/data/by_age_groups.csv"
 ages <- read.csv(cancer_file, header = TRUE, stringsAsFactors = FALSE)
 
 #change columns name
