@@ -53,3 +53,4 @@ summary_info$quartiles_75 <- quantile(latest_year$cases, probs = c(0.75))[1]
 
 #IQR = inter quartile range
 summary_info$iqr <- summary_info$quartiles_75 - summary_info$quartiles_25
+

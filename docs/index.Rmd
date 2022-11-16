@@ -17,7 +17,7 @@ library("knitr")
 Our purpose of this project is not only aiming to assist people in this community to reduce their number of cases and increase survival rates based on our insightful analysis, but we also want our project to make people pay more attention to cancer prevention.
 * Cases/gender/ages/ethnicity
 
-## ACCESSING THE Source / DIRECTORY
+## ACCESSING THE SOURCE / DIRECTORY
 ###: Here are our four sourcese. We drag data from John Snow Labs to analysis the our cancer cases. For exmaple, in the By_races source. We using the source that we loaded and form a data sets with age_group", "cases", "population", "ethnicity", "frequency",  "gender". We have the cancer cases by different ethnicity and find the proportion by using the each ethnicity cases dividing the total cases. And here is the our source, and the code is below.
 
 ```{r, echo = TRUE}
@@ -27,7 +27,8 @@ source("../source/by_year.R")
 source("../source/table.R")
 ```
 
-## ABOUT THIS TABLE: Here we include the table that the total cancer cases in different group ages. In our data visualization, we want to show that how ages influence chances that people get the cancer. And we want to explore which age range would have highly chance to get the cancers. So that people in that age group or who later on will be in this age group pay more attention to this disease.
+## ABOUT THIS TABLE: 
+Here we include the table that the total cancer cases in different group ages. In our data visualization, we want to show that how ages influence chances that people get the cancer. And we want to explore which age range would have highly chance to get the cancers. So that people in that age group or who later on will be in this age group pay more attention to this disease.
 ```{r}
 kable(by_age_groups)
 ```
@@ -35,20 +36,18 @@ kable(by_age_groups)
 
 
 ## ABOUT THIS FILE: 
+Here we load the results from the summary. We present a brief overviews of the 8 lists we extract from our summary file. We use our latest year from our data, which is the year of 2016.
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-
+```{r, echo = TRUE}
+source("../source/Summary.R")
 ```
+
+This is a brief report regarding the number of mortality cases in 2016. Our data reveals that the total number of mortality cases, for all races, gender, and age groups of the year, is `r summary_info$num_observations`. Take a deeper look into our data, we observe that the highest entries of mortality cases of the year is `r summary_info$max_cases`, with the lowest entries of mortality cases of  `r summary_info$min_cases`. As the data reveals, there is a tremendous difference between the two. Following by the highest and lowest entries of motality cases, the average number of mortality cases happened in the year is `r summary_info$avg_cases`, with the standard deviation of `r summary_info$sd`. The data reveals that the first quartile (25%) of cases is `r summary_info$quartiles_25`, while the third quartile (75%) of cases `r summary_info$quartiles_75`; Last but not least, the value of the inter quartile range, which the difference between the upper and lower medians, is `r summary_info$iqr`. We use the value of the first quartile(lower) and the third quartile(upper) to get the the result. 
 
 ## Including Charts:
 
-Here we have three charts here. Pie chart, bar chart.The purpose of haveing the chart to get an idea of the proportion of cancer cases according to
-ethnicity, and year, and gender. For exmaple, from the by_races_chart, people from different ethinicity will different amount cases of to get the cancer.
-from by_year_chart, people who see will have better understanding of the trend of the cancer cases in the US throughout the years.ALso, from female_only_chart, we would have which age group would have the most cancer cases in the US.
+Here we have three charts here. Pie chart, bar chart.The purpose of having the chart to get an idea of the proportion of cancer cases according to ethnicity, and year, and gender. For example, from the by_races_chart, people from different ethnicity will different amount cases of to get the cancer.
+From by_year_chart, people who see will have better understanding of the trend of the cancer cases in the US throughout the years. Also, from female_only_chart, we would have which age group would have the most cancer cases in the US.
 
 
 ```{r echo=FALSE}
