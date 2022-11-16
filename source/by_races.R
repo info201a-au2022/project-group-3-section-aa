@@ -1,8 +1,7 @@
 
 library(ggplot2)
-library(dplyr)
-
-cancer_file <- "/Users/quynhanh/Documents/info201/project/project-group-3-section-aa/data/cancer_by_ages.csv"
+library(tidyverse)
+cancer_file <- "https://raw.githubusercontent.com/info201a-au2022/project-group-3-section-aa/main/data/cancer_by_ages.csv"
 ages <- read.csv(cancer_file, header = TRUE, stringsAsFactors = FALSE)
 
 #change columns name
@@ -19,13 +18,13 @@ data <- ages %>%
   filter(Cancer_Organ_Site == "All Cancer Sites Combined") %>% 
   filter(Cancer_Event_Type == "Mortality") %>% 
   select(ethnicity, cases)
-View(data)
+
 
 #get cases for each race
 by_races <- data %>% 
   group_by(ethnicity) %>% 
   summarise(total_cases = sum(cases, na.rm = TRUE))
-View(by_races)
+
 
 #get the number of cases for all races
 all_races_total_cases <- by_races %>% 
@@ -38,9 +37,9 @@ by_races <- by_races %>%
 by_races <- by_races[-1,]
 
 #chart
-chart <- ggplot(by_races, aes(x = "", y = prop, fill=ethnicity)) +
+chart_races <- ggplot(by_races, aes(x = "", y = prop, fill=ethnicity)) +
   geom_bar(stat="identity", width=1) +
   coord_polar("y", start=0)
-chart
+chart_races
 
 #I include this chart
