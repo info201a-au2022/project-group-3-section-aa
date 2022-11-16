@@ -21,7 +21,6 @@ Our purpose of this project is not only aiming to assist people in this communit
 * Please see Canvas for more details.
 
 ## ACCESSING THE /source DIRECTORY
-<<<<<<< HEAD
 ### Example 1: In this By_races source. We using the source that we loaded and form a data sets with age_group", "cases", "population", "ethnicity", "frequency",  "gender". We have the cancer cases by different ethnicity and find the proportion by using the each ethnicity cases dividing the total cases. And here is the our source, and the code is below.
 
 ```{r, echo = TRUE}
@@ -29,15 +28,6 @@ source("../source/by_races.R")
 source("../source/female_only.R")
 source("../source/by_year.R")
 source("../source/table.R")
-=======
-### Example 1: Source some code and run a function
-```{r}
-# Example 1: Note relative path, which can be read: Up one
-# directory(..), down into source (/source), and 
-# then "source" an R file (data_access.R)
-source("../source/by_year.R")
-test()
->>>>>>> 5a3919d6f3deac67201f53d900b8005ba3e08b9d
 ```
 
 ### Example 2: Initialize a variable and then use it

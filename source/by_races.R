@@ -42,4 +42,3 @@ chart_races <- ggplot(by_races, aes(x = "", y = prop, fill=ethnicity)) +
   coord_polar("y", start=0)
 chart_races
 
-#I include this chart
