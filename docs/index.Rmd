@@ -11,8 +11,85 @@ library("dplyr")
 library("knitr")
 ```
 
-## Introduction: Cancer Hazard 
+## Abstract: Cancer Hazard 
  We are here to analyze datasets of various cancer types and their treatments in different parts of the United States Also, we have data visualization on different cancer cases related to different races.
+ 
+## Report Elements:
+- Code name: Cancer
+- Project title: “Cancer in the United States: Cancer Hazard”
+- Authors: 
+Lolly Zhao (lollyz@uw.edu)
+Vicky Huang (zhihuang@uw.edu)
+Allison Ho (qnho@uw.edu)
+- Affiliation: INFO-201: Technical Foundations of Informatics - The Information School - University of Washington
+- Date: 11/14/2022
+- Abstract: Our main question is to figure out whether there is a relationship between the demographics of people in the US and cancer risk. This question is important because we need more information on whether a group of people has a higher chance of having cancer than others so that we can develop preventive methods. In addition, understanding this relationship can also give us more information on whether a specific kind of gene has any impact after we have learned about the societal scope. To address the question, we will use data from CDC and the American Cancer Society to better analyze this relationship.
+- Keywords: cancer, cancer treatment, cancer risk, cancer support
+- Introduction: Cancer is one of the most common diseases with a very high mortality rate. Our project is to analyze data sets of various cancer types and their treatments in different parts of the United States so that people won’t be frustrated and will have some ideas of various types of cancer and symptoms at different cancer stages. In our report, we include three data visualizations of charts in order for cancer mortality cases to vary by different age groups, ethnicities, and year. We seek to come out with insightful analysis for people within our community to practice healthy living habits to prevent potential cancer risks. We also aim to use our analysis to determine the differences in the cancer burden in similar states or regions, so that we can use the data to guide planning efforts for cancer control programs  or future research studies.
+- Problem domain: 
+
+  Framing the problem domain: Cancer is a disease that affects many people’s lives, both directly and indirectly. As researchers and doctors work to find a cure or an effective treatment for cancer, good cancer data analysis is much needed, as they can provide lots of underlying information that data sets alone cannot convey.
+
+  Value: The value criterion on human values includes inclusivity, privacy, and accessibility for cancer support groups within the community. Human values in perceiving and caring for cancers affect how society sees and treats cancer patients. Till today, there is evidence of myths associated with cancer, such as the belief that cancer is fatal, cancer can be a religious karma, or cancer is contagious. These types of beliefs about cancer can cultivate stigma towards the disease, which makes cancer patients more vulnerable and targeted in society. There are also fears of cancer as some patients are afraid of the technology or drug use that will affect their health, thus affecting their chances of surviving. In terms of privacy, cancer data are highly confidential. Patients have the right to decide whether to share their personal information or discuss issues of cancer types, personal matters, and treatment costs with physicians. At the state level, the legislature has made efforts to enforce and make laws to protect patients' privacy. (National Cancer Institute, n.d.) For example, information about a patient would be removed when data is reported. Moreover, researchers need to submit requests and get permission from the authority to get information about specific data. Last but not least, cancer patients need to find a sense of belonging, a place where they are valued and loved. Right now, there are volunteer lead and community-based support groups that are accessible to the cancer community. These groups create a safe environment for cancer patients to share their feelings, get resources and support, and exchange ideas and tips to get better.
+
+  Stakeholders: Direct stakeholders are the patient, patient’s family and doctors. Indirect stakeholders are researchers who are doing cancer research or students studying data science.
+Benefits: We need more information to know whether a group of people has a higher incidence of cancer than others, after understanding the social scale, we know more about whether a particular gene has an effect. So that medical institutions can develop prevention methods and cancer patients can be treated more effectively which means reducing the number of cases and increasing survival rates.
+
+  Harms: Because the dataset we can collect is minimum so there can be some misrepresentation or a lack of information on one group of people altogether. This leads to a group being excluded and others having a higher chance of having cancer. Another harm is that this analysis uses lots of personal information from patients so if we don’t handle them well, patients’ information can be posted online and invade their privacy. In addition, we use a dataset that demonstrates the death rates of cancer cases in the US, which could be viewed as sensitive information by some people and make them uncomfortable.
+
+- Research questions: 
+
+  Which are the predominant or known risk factors that cause cancer in high-income countries like the U.S.?
+
+  This is important because many risk factors were caused by unhealthy living habits, which can be prevented, thus helping people get a healthier and prolonged life. Unhealthy habits including Tobacco use, infectious agents, unhealthy diet, excess body weight, physical inactivity, and alcohol consumption account for the majority of cancer deaths caused by known risk factors.
+
+  Is there a relationship between areas of living and the chance of having cancer?
+
+  It’s important to understand how situations vary in different areas and what causes these differences in different areas. Is it because of social factors, religious beliefs, economic factors, political issues, etc. Understanding the research question is helpful for designing, implementing, and expanding comprehensive cancer control efforts for different regions.
+
+  Is there a relationship between ages and the chance of having cancer?
+
+  It’s important for us to understand which age group is most vulnerable to cancer, thus helping us figure out the best strategy to support different age groups. By identifying populations at risk for certain cancers, we can develop effective, evidence-based cancer prevention and control activities for these groups based on age group and risk factors. 
+
+- The dat aset: Each of these data sets will help answer one question from research questions, such as there is a data set for the correlation between US states and the number of cancer cases and the cancer cases by ages. By looking at these data and their visualization, we can obtain evidence for our answers to our research questions.
+
+- Expected implications: 
+
+  We hope our findings will be expected to show the cancer risk patterns by different ethnicities, ages, and different times. We expect our results to indicate that not all ages have the same rate of cancer risk rate and situation and hospitalization pattern can affect cancer rate vary by different counties. We hope to understand the legal and practical implications of our research and we hope our findings would be helpful for future research and studies in the related field.
+  
+- Limitations: 
+
+  A lot of clean data sets are restricted, so we may have to work with lofty data sets.
+  
+  We just have basic knowledge about cancer so I think it will be hard to draw detailed conclusions without a thorough research.
+
+  It’s hard to find a data set for immunotherapy as this is a new way of treating cancer and most of the databases are restricted.
+
+  The limitation is that as undergraduate students, it is difficult for us to get access to professional medical databases which only provide for certain medical institutions' research.
+In some states, patients' information is private, our dataset would only approximately calculate the numbers or round up by certain methods.
+
+  While we analyze cancer people’s age groups and their locations, it is difficult for us to track people’s actual age range and their cancer process. Since some of the patients would have cancer before they were actually diagnosed. Also, they may move to other states which will make our data on locating the cases very unclear.
+
+- Acknowledgements (optional)
+
+- References:
+
+  NATIONAL CANCER INSTITUTE. (n.d.). Confidentiality. Confidentiality | SEER Training. Retrieved October 31, 2022, from https://training.seer.cancer.gov/registration/data/confidentiality.html
+
+  John Snow Labs. (2022, August 3). Cancer types grouped by area. John Snow Labs. Retrieved November 16, 2022, from https://www.johnsnowlabs.com/marketplace/cancer-types-grouped-by-area/ 
+
+  John Snow Labs. (2022, August 3). Cancer types grouped by age. John Snow Labs. Retrieved November 16, 2022, from https://www.johnsnowlabs.com/marketplace/cancer-types-grouped-by-age/ 
+
+  Risk factors. The Cancer Atlas. (n.d.). Retrieved November 16, 2022, from https://canceratlas.cancer.org/risk-factors/ 
+
+- Appendix A: Questions
+
+  We create the chart using the latest year from our data, which is 2016. Do you think it is a good idea for us to focus on a specific year and get deep down on our data? Or would you prefer seeing different year ranges?
+
+  Do you have any suggestions in adding titles or additional information in our charts? 
+
+  Do you have any suggestions in improving the quality of our project in general, like the aesthetic appearance or color?
+
 ## Purpose:
 Our purpose of this project is not only aiming to assist people in this community to reduce their number of cases and increase survival rates based on our insightful analysis, but we also want our project to make people pay more attention to cancer prevention.
 * Cases/gender/ages/ethnicity
@@ -56,5 +133,4 @@ by_races_chart
 by_year_chart
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
