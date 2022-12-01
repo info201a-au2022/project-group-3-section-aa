@@ -2,7 +2,7 @@ library(dplyr)
 library(tidyverse)
 
 source("helper_func.R")
-age_data <- read.csv("/Users/quynhanh/Documents/info201/project/project-group-3-section-aa/data/by_age_groups.csv")
+age_data <- read.csv("../data/by_age_groups.csv")
 
 by_age <- age_data %>% 
   select(Age_Group, Gender, Count_of_People_Diagnosed_With_Cancer, Cancer_Event_Type, 

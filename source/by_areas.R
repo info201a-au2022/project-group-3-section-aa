@@ -1,7 +1,7 @@
 library(tidyverse)
 library(dplyr)
 
-master_data <- read.csv("/Users/quynhanh/Documents/info201/project/project-group-3-section-aa/data/by_areas.csv")
+master_data <- read.csv("../data/by_areas.csv")
 
 
 #CLEAN UP DATASET#
@@ -20,7 +20,26 @@ areas_data <- areas_data %>%
   select(divisions, cases, event_type, population, based_on_races, gender, organ_sites,
          start_year, end_year)
 
+areas_data$cases <- as.integer(areas_data$cases)
 
-#find the total population for each census division
+#find the ratio of incidence/mortality cases in each census division
+incidence_cases <- cancer_cases_in_division("Incidence")
+incidence_cases <- incidence_cases %>% 
+  rename(incidence_total = total)
+
+mortality_cases <- cancer_cases_in_division("Mortality")
+mortality_cases <- mortality_cases %>% 
+  rename(mortality_total = total)
+
+#does the population have any relationship with the chance of having cancer
+#large population = more chance of having cancer? 
+
+
+
+
+
+
+
+
 
   
