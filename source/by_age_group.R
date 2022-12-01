@@ -92,8 +92,8 @@ total_cases <- female_male %>%
          male_prop = male_total / cases_in_groups$total_cases)
 
 
-
-
+sites <- unique(by_age$sites)
+print(sites)
 
 
 

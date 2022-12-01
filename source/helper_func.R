@@ -28,9 +28,27 @@ by_age <- by_age %>%
          start_year = Data_Collection_Starting_Year,
          end_year = Data_Collection_Ending_Year)
 
+#areas_data
+areas_data <- areas_data %>% 
+  rename(divisions = Census_Division_Name,
+         cases = Count_of_People_Diagnosed_With_Cancer,
+         event_type = Cancer_Event_Type,
+         population = Population_in_Census_Division,
+         based_on_races = Cancer_Frequency_Based_on_Race_And_Ethnicity,
+         gender = Gender,
+         organ_sites = Cancer_Organ_Site,
+         start_year = Data_Collection_Starting_Year,
+         end_year = Data_Collection_Ending_Year)
+
+areas_data <- areas_data %>% 
+  select(divisions, cases, event_type, population, based_on_races, gender, organ_sites,
+         start_year, end_year)
+
+areas_data$cases <- as.integer(areas_data$cases)
 
 ##--------------------------------UNDERSTAND THE DATA----------------------------------##
 
+#BY_AGE DATASET
 #get a data frame for female or male population only
 female_male_num <- function(gender, df) {
   df <- by_age %>% 
@@ -41,6 +59,15 @@ female_male_num <- function(gender, df) {
 }
 
 
+#AREAS_DATA
+#get the ratio of incidence/mortality cases per census division
+cancer_cases_in_division <- function(cancer_type) {
+  by_division <- areas_data %>% 
+    filter(event_type == cancer_type) %>% 
+    group_by(divisions) %>% 
+    summarise(total = sum(cases, na.rm = TRUE) / sum(population, na.rm = TRUE))
+  return(by_division)
+}
 
 
 
