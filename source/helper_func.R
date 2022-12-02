@@ -65,8 +65,8 @@ cancer_cases_in_division <- function(cancer_type) {
   by_division <- areas_data %>% 
     filter(event_type == cancer_type) %>% 
     group_by(divisions) %>%
-    summarise(total = sum(cases, na.rm = TRUE) / sum(population, na.rm = TRUE)) %>% 
-    mutate(total_cases = sum(cases, na.rm = TRUE))
+    summarise(total = sum(cases, na.rm = TRUE) / sum(population, na.rm = TRUE),
+              total_cases = sum(cases, na.rm = TRUE))
   return(by_division)
 }
 

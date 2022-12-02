@@ -23,18 +23,54 @@ areas_data <- areas_data %>%
 areas_data$cases <- as.integer(areas_data$cases)
 
 #find the ratio of incidence/mortality cases in each census division
+#we can ask:
+#does the population have any relationship with the chance of having cancer
+#large population = more chance of having cancer? 
 incidence_cases <- cancer_cases_in_division("Incidence")
 incidence_cases <- incidence_cases %>% 
-  rename(incidence_total = total)
+  rename(incidence_ratio = total,
+         total_incidence = total_cases)
 
 mortality_cases <- cancer_cases_in_division("Mortality")
 mortality_cases <- mortality_cases %>% 
-  rename(mortality_total = total)
-
-#does the population have any relationship with the chance of having cancer
-#large population = more chance of having cancer? 
+  rename(mortality_total = total,
+         total_mortality = total_cases)
 
 
+
+#find the total population for each divisions
+total_population <- areas_data %>% 
+  filter(event_type == "Incidence") %>% 
+  group_by(divisions) %>% 
+  summarise(total_pop = sum(population, na.rm = TRUE))
+
+
+#join incidence dataframe and mortality dataframe and add a column for the total
+#population for each divisions
+cases_ratio <- left_join(incidence_cases, mortality_cases, by = "divisions")
+cases_ratio <- left_join(cases_ratio, total_population, by = "divisions")  
+
+
+
+#which organ sites cancer make up the majority of the mortality cases in each state?
+
+#calculate the number of mortality cases for each organ sites in each division
+by_organ_sites <- areas_data %>% 
+  filter(event_type == "Mortality") %>% 
+  group_by(divisions, organ_sites) %>% 
+  summarise(total = sum(cases, na.rm = TRUE))
+
+#calculate the prop of each organ sites cancer over the total mortality case for a
+#division
+
+total_mortality_by_divisions <- cases_ratio %>% 
+  select(divisions, total_mortality)
+
+by_organ_sites <- left_join(by_organ_sites, total_mortality_by_divisions, 
+                            by = "divisions")
+
+by_organ_sites <- by_organ_sites %>% 
+  mutate(prop_cases = total / total_mortality)
 
 
 
