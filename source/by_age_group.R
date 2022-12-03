@@ -1,5 +1,6 @@
 library(dplyr)
 library(tidyverse)
+library(ggplot2)
 
 age_data <- read.csv("../data/by_age_groups.csv")
 
@@ -117,5 +118,9 @@ cases_by_sites <- cases_by_sites %>%
 
 
 
+
+##BAR CHART FOR THE RATIO OF CANCER CASES OVER TOTAL POPULATION FOR EACH AGE GROUP
+ggplot(cases_in_groups, aes(x = age_group, y = ratio))+ 
+  geom_bar(stat = "identity")
 
 
