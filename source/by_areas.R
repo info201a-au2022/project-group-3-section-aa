@@ -2,11 +2,12 @@ library(tidyverse)
 library(dplyr)
 
 master_data <- read.csv("../data/by_areas.csv")
+source("../source/helper_func.R")
 
 
 #CLEAN UP DATASET#
-areas_data <- areas_data %>% 
-  rename(divisions = Census_Division_Name,
+areas_data <- master_data  %>% 
+  rename(state = Census_Division_Name,
          cases = Count_of_People_Diagnosed_With_Cancer,
          event_type = Cancer_Event_Type,
          population = Population_in_Census_Division,
@@ -17,7 +18,7 @@ areas_data <- areas_data %>%
          end_year = Data_Collection_Ending_Year)
 
 areas_data <- areas_data %>% 
-  select(divisions, cases, event_type, population, based_on_races, gender, organ_sites,
+  select(state, cases, event_type, population, based_on_races, gender, organ_sites,
          start_year, end_year)
 
 areas_data$cases <- as.integer(areas_data$cases)
@@ -41,14 +42,14 @@ mortality_cases <- mortality_cases %>%
 #find the total population for each divisions
 total_population <- areas_data %>% 
   filter(event_type == "Incidence") %>% 
-  group_by(divisions) %>% 
+  group_by(state) %>% 
   summarise(total_pop = sum(population, na.rm = TRUE))
 
 
 #join incidence dataframe and mortality dataframe and add a column for the total
 #population for each divisions
-cases_ratio <- left_join(incidence_cases, mortality_cases, by = "divisions")
-cases_ratio <- left_join(cases_ratio, total_population, by = "divisions")  
+cases_ratio <- left_join(incidence_cases, mortality_cases, by = "state")
+cases_ratio <- left_join(cases_ratio, total_population, by = "state")  
 
 
 
@@ -57,17 +58,17 @@ cases_ratio <- left_join(cases_ratio, total_population, by = "divisions")
 #calculate the number of mortality cases for each organ sites in each division
 by_organ_sites <- areas_data %>% 
   filter(event_type == "Mortality") %>% 
-  group_by(divisions, organ_sites) %>% 
+  group_by(state, organ_sites) %>% 
   summarise(total = sum(cases, na.rm = TRUE))
 
 #calculate the prop of each organ sites cancer over the total mortality case for a
 #division
 
-total_mortality_by_divisions <- cases_ratio %>% 
-  select(divisions, total_mortality)
+total_mortality_by_state <- cases_ratio %>% 
+  select(state, total_mortality)
 
-by_organ_sites <- left_join(by_organ_sites, total_mortality_by_divisions, 
-                            by = "divisions")
+by_organ_sites <- left_join(by_organ_sites, total_mortality_by_state, 
+                            by = "state")
 
 by_organ_sites <- by_organ_sites %>% 
   mutate(prop_cases = total / total_mortality)

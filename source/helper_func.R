@@ -2,13 +2,12 @@ library(readxl)
 library(dplyr)
 library(tidyverse)
 
-data <- read_excel("/Users/quynhanh/Documents/info201/data/cancer.xlsx")
 
-age_data <- read.csv("/Users/quynhanh/Documents/info201/project/project-group-3-section-aa/data/by_age_groups.csv")
+age_data <- read.csv("../data/by_age_groups.csv")
 
-areas_data <- read.csv("/Users/quynhanh/Documents/info201/project/project-group-3-section-aa/data/by_areas.csv")
+areas_data <- read.csv("../data/by_areas.csv")
 
-risks <- read_excel("/Users/quynhanh/Documents/info201/project/project-group-3-section-aa/data/cancer_risk_factors.xlsx")
+risks <- read_excel("../data/cancer_risk_factors.xlsx")
 
 
 ##--------------------------------CLEANING DATASET-----------------------------------##
