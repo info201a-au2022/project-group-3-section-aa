@@ -4,15 +4,17 @@ library(shiny)
 # layout. The `fluidPage()` layout should be passed the following:
 ui <- fluidPage(
   includeCSS("styles.css"),
-  
+  #includeScript("index.js"),
+  #includeScript("node_modules/lib/lax.min.js"),
+
   # A first-level header (`h1()`) with the content "First Shiny Website"
   h1("Cancer"),
-  
+
   h2("Overview"),
-  
+
   p("Allison Ho, Lolly Zhao, Vicky Huang"),
-  
-  p("Our main question is figuring out whether there is a relationship between the demographics 
+
+  p("Our main question is figuring out whether there is a relationship between the demographics
     of people in the US and two potential risk factors for cancer. This question is important
     because we need more information on whether a group of people has a higher chance of having
     cancer than others so that we can develop preventive methods. In addition, understanding this
@@ -20,7 +22,7 @@ ui <- fluidPage(
     after we have learned about the societal scope. To address the question, we will use data collected
     by the John Snows Lab, which is validated by the CDC and another dataset collected by CDC to better
     analyze this relationship."),
-  
+
   h3("Source")
 )
 

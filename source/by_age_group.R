@@ -116,7 +116,7 @@ cases_by_sites <- left_join(cases_by_sites, mortality_cases, by = "age_group")
 cases_by_sites <- cases_by_sites %>% 
   mutate(prop = total_cases / total_mortality)
 
-
+cases_by_sites <- cases_by_sites[!cases_by_sites$sites == "All Cancer Sites Combined", ]
 
 
 ##BAR CHART FOR THE RATIO OF CANCER CASES OVER TOTAL POPULATION FOR EACH AGE GROUP

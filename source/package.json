@@ -1,0 +1,14 @@
+{
+  "name": "source",
+  "version": "1.0.0",
+  "description": "All of our project code is found in this directory.  We further organize our code into  these sub-directories (TODO: Update/Delete)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lax.js": "^2.0.3"
+  }
+}
