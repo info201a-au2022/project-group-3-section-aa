@@ -1,7 +1,6 @@
 library(dplyr)
 library(tidyverse)
 
-source("helper_func.R")
 age_data <- read.csv("../data/by_age_groups.csv")
 
 by_age <- age_data %>% 
@@ -76,7 +75,14 @@ highest_incidence_group <- cases_by_type %>%
   filter(incidence_prop == max(incidence_prop)) %>% 
   pull(age_group)
 
-
+#get a data frame for female or male population only
+female_male_num <- function(gender, df) {
+  df <- by_age %>% 
+    filter(gender == gender) %>% 
+    group_by(age_group) %>% 
+    summarise(total = sum(population, na.rm = TRUE))
+  return(df)
+}
 
 female_total <- female_male_num("Female", female_total) %>% 
   rename(female_total = total)
@@ -92,8 +98,22 @@ total_cases <- female_male %>%
          male_prop = male_total / cases_in_groups$total_cases)
 
 
-sites <- unique(by_age$sites)
-print(sites)
+##MAKE AN INTERACTIVE GRAPH THAT ALLOWS USER TO SELECT THE AGE GROUP AND RETURN THE DATA FOR THE
+##PROP OF MORTALITY CASES FOR EACH CANCER SITES FOR THAT SPECIFIC AGE GROUP
+
+#calculate the number of mortality cases for each organ sites for each age group
+cases_by_sites <- by_age %>% 
+  filter(cancer_event_type == "Mortality") %>% 
+  group_by(age_group, sites) %>% 
+  summarise(total_cases = sum(cases, na.rm = TRUE))
+
+#get the total mortality cases for each age group
+cases_by_sites <- left_join(cases_by_sites, mortality_cases, by = "age_group")
+
+#calculate the prop of each organ sites cancer over the total mortality case for an
+#age group
+cases_by_sites <- cases_by_sites %>% 
+  mutate(prop = total_cases / total_mortality)
 
 
 

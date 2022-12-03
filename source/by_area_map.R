@@ -18,4 +18,5 @@ map_total_pop <- function()  {
          caption = "A map that indicates how cancer mortality population in each state looks like in year")
   return(plot)
 } 
-map_total_pop ()
+
+map_total_pop()

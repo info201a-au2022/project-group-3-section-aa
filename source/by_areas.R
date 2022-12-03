@@ -2,8 +2,6 @@ library(tidyverse)
 library(dplyr)
 
 master_data <- read.csv("../data/by_areas.csv")
-source("../source/helper_func.R")
-
 
 #CLEAN UP DATASET#
 areas_data <- master_data  %>% 
@@ -27,13 +25,24 @@ areas_data$cases <- as.integer(areas_data$cases)
 #we can ask:
 #does the population have any relationship with the chance of having cancer
 #large population = more chance of having cancer? 
-incidence_cases <- cancer_cases_in_division("Incidence")
-incidence_cases <- incidence_cases %>% 
+
+#get the ratio of incidence/mortality cases per census division
+cancer_cases_in_division <- function(cancer_type) {
+  by_division <- areas_data %>% 
+    filter(event_type == cancer_type) %>% 
+    group_by(state) %>%
+    summarise(total = sum(cases, na.rm = TRUE) / sum(population, na.rm = TRUE),
+              total_cases = sum(cases, na.rm = TRUE))
+  return(by_division)
+}
+
+incidence_cases_by_state <- cancer_cases_in_division("Incidence")
+incidence_cases_by_state <- incidence_cases_by_state %>% 
   rename(incidence_ratio = total,
          total_incidence = total_cases)
 
-mortality_cases <- cancer_cases_in_division("Mortality")
-mortality_cases <- mortality_cases %>% 
+mortality_cases_by_state <- cancer_cases_in_division("Mortality")
+mortality_cases_by_state <- mortality_cases_by_state %>% 
   rename(mortality_total = total,
          total_mortality = total_cases)
 
@@ -48,14 +57,16 @@ total_population <- areas_data %>%
 
 #join incidence dataframe and mortality dataframe and add a column for the total
 #population for each divisions
-cases_ratio <- left_join(incidence_cases, mortality_cases, by = "state")
-cases_ratio <- left_join(cases_ratio, total_population, by = "state")  
+cases_ratio <- left_join(incidence_cases_by_state, mortality_cases_by_state, by = "state")
+cases_ratio <- left_join(cases_ratio, total_population, by = "state")
 
 
+##MAKE AN INTERACTIVE GRAPH THAT ALLOWS USER TO SELECT THE CANCER SITES AND RETURN THE DATA FOR THE
+##PROP OF MORTALITY CASES FOR EACH STATE FOR THAT SPECIFIC CANCER SITES
 
 #which organ sites cancer make up the majority of the mortality cases in each state?
 
-#calculate the number of mortality cases for each organ sites in each division
+#calculate the number of mortality cases for each organ sites in each state
 by_organ_sites <- areas_data %>% 
   filter(event_type == "Mortality") %>% 
   group_by(state, organ_sites) %>% 
