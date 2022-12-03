@@ -76,28 +76,11 @@ highest_incidence_group <- cases_by_type %>%
   filter(incidence_prop == max(incidence_prop)) %>% 
   pull(age_group)
 
-#get a data frame for female or male population only
-female_male_num <- function(gender, df) {
-  df <- by_age %>% 
-    filter(gender == gender) %>% 
-    group_by(age_group) %>% 
-    summarise(total = sum(population, na.rm = TRUE))
-  return(df)
-}
-
-female_total <- female_male_num("Female", female_total) %>% 
-  rename(female_total = total)
-
-male_total <- female_male_num("Male", male_total) %>% 
-  rename(male_total = total)
-
-female_male <- left_join(female_total, male_total, by = "age_group")
-
-#find the gender ratio for each age group that has cancer case
-total_cases <- female_male %>% 
-  mutate(female_prop = female_total / cases_in_groups$total_cases,
-         male_prop = male_total / cases_in_groups$total_cases)
-
+#dataframe to make a stacked bar chart
+cases_by_gender <- by_age %>% 
+  group_by(age_group, gender) %>% 
+  filter(gender != "Male and Female") %>% 
+  summarise(prop = sum(population, na.rm = TRUE) / cases_in_groups$total_cases)
 
 ##MAKE AN INTERACTIVE GRAPH THAT ALLOWS USER TO SELECT THE AGE GROUP AND RETURN THE DATA FOR THE
 ##PROP OF MORTALITY CASES FOR EACH CANCER SITES FOR THAT SPECIFIC AGE GROUP
@@ -124,3 +107,8 @@ ggplot(cases_in_groups, aes(x = age_group, y = ratio))+
   geom_bar(stat = "identity")
 
 
+
+
+##grouped bar chart 
+ggplot(cases_by_gender, aes(fill = gender, y = prop, x = age_group))  + 
+  geom_bar(position="dodge", stat="identity")
