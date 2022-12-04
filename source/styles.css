@@ -14,5 +14,17 @@ h2 {
   font-family: 'Roboto', sans-serif;
 }
 
+#header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
+#intro {
+  padding: 50px 50px 50px 50px;
+}
+
+#intro h1 {
+  font-size: 100px;
+}
 

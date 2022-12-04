@@ -15,7 +15,7 @@ ui <- fluidPage(
           p("Allison Ho, Lolly Zhao, Vicky Huang"),
       ),
       
-      img("a picture of a cell", src = "header_img.jpeg")
+      img("a picture of a cell", src = "cell.jpeg")
   ),
   
   HTML("<hr>"),
