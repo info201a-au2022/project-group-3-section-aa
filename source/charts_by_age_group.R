@@ -2,7 +2,7 @@ library(ggplot2)
 library(dplyr)
 library(tidyverse)
 
-source("../source/by_age_group.R")
+source("by_age_group.R")
 
 #bar graph of total cases rate by age 
 cases_in_groups <- cases_in_groups[c(1:2, 11, 3:10, 12:19),]

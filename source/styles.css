@@ -12,6 +12,13 @@ h2 {
   font-family: 'Roboto', sans-serif;
 }
 
+.chart {
+  border-radius: 25px;
+  border-color: black;
+  width: 100px;
+  height: 80px;
+}
+
 #intro h1 {
   font-size: 100px;
   text-align: center;

@@ -105,10 +105,3 @@ cases_by_sites <- cases_by_sites[!cases_by_sites$sites == "All Cancer Sites Comb
 ##BAR CHART FOR THE RATIO OF CANCER CASES OVER TOTAL POPULATION FOR EACH AGE GROUP
 ggplot(cases_in_groups, aes(x = age_group, y = ratio))+ 
   geom_bar(stat = "identity")
-
-
-
-
-##grouped bar chart 
-ggplot(cases_by_gender, aes(fill = gender, y = prop, x = age_group))  + 
-  geom_bar(position="dodge", stat="identity")
