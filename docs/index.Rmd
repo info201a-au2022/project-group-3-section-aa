@@ -55,7 +55,7 @@ Benefits: We need more information to know whether a group of people has a highe
 
 - Expected implications: 
 
-  We hope our findings will be expected to show the cancer risk patterns by different ethnicities, ages, and different times. We expect our results to indicate that not all ages have the same rate of cancer risk rate and situation and hospitalization pattern can affect cancer rate vary by different counties. We hope to understand the legal and practical implications of our research and we hope our findings would be helpful for future research and studies in the related field.
+  We hope our findings will be expected to show the cancer risk patterns by different areas and different ages. We expect our results to indicate that not all ages have the same rate of cancer risk rate and situation and hospitalization pattern can affect cancer rate vary by different counties. We hope to understand the legal and practical implications of our research and we hope our findings would be helpful for future research and studies in the related field.
   
 - Limitations: 
 

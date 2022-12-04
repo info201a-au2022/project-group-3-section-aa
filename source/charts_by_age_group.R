@@ -11,7 +11,7 @@ pop_by_age <- ggplot(data = cases_in_groups) +
       y = total_cases)) + 
     scale_y_continuous(labels = scales::comma) +
     labs(
-      x = "cancer population by age group",
+      x = "age group",
       y = "cancer cases frequency",
       title = "Increase of cancer population by age group"
     )
@@ -19,7 +19,13 @@ pop_by_age
 
 #bar graph of ratio by age
 pop_age_ratio <- ggplot(cases_in_groups, aes(x = age_group, y = ratio))+
-  geom_bar(stat = "identity")
+  geom_bar(stat = "identity") +
+  scale_y_continuous(labels = scales::comma) +
+  labs(
+    x = "age group",
+    y = "ratio",
+    title = "cancel population ratio by age group"
+  )
 pop_age_ratio
 
 #pie chart of prop by each sites 
@@ -36,7 +42,7 @@ female_male <- ggplot(cases_by_gender, aes(fill = gender, y = prop, x = age_grou
   geom_bar(position="dodge", stat="identity") +
   scale_y_continuous(labels = scales::comma) +
   labs(
-    x = "cancer population by gender in each age group",
+    x = "age group",
     y = "properties of cancer population between male and female",
     title = "comparison of male and female cancer properties rates by age group"
   )
