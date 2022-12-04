@@ -13,17 +13,10 @@ ui <- fluidPage(
           h1("Cancer"),
           
           p("Allison Ho, Lolly Zhao, Vicky Huang"),
-      ),
-      
-      img("a picture of a cell", src = "cell.jpeg")
-  ),
-  
-  HTML("<hr>"),
-  
-  div(id = "overview",
-      h2("Overview"),
-      
-      p("Our main question is figuring out whether there is a relationship between
+          
+          h2("Overview"),
+          
+          p("Our main question is figuring out whether there is a relationship between
         the demographics of people in the US and two potential risk factors for
         cancer. This question is important because we need more information on whether
         a group of people has a higher chance of having cancer than others so that we
@@ -32,8 +25,17 @@ ui <- fluidPage(
         impact after we have learned about the societal scope. To address the question,
         we will use data collected by the John Snows Lab, which is validated by the
         CDC and another dataset collected by CDC to better analyze this relationship."
+          ),
       ),
+
+      img("", src = "https://i.pinimg.com/564x/3d/dd/c2/3dddc279a80ed0dee468433be51906b7.jpg"),
+      
+      
   ),
+  
+  HTML("<hr>"),
+  
+
   
   h3("Source")
 )
