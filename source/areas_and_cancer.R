@@ -14,11 +14,11 @@ ui <- fluidPage(
   div(
     h3("The Incidence Rates in Each State"),
     
-    p("[insert map here]"),
+    plotOutput("incidence_map"),
     
     h3("The Mortality Rates in Each State"),
     
-    p("[insert map here]"),
+    plotOutput("mortality_map"),
   ),
   
   p("maps description goes here"),
@@ -34,7 +34,9 @@ ui <- fluidPage(
 
 # This defines a server that doesn't do anything yet, but is needed to run the app.
 server <- function(input, output) {
-  # Will be next!
+  output$incidence_map <- renderPlot(return(map_total_pop("incidence_ratio")))
+  output$mortality_map <- renderPlot(return(map_total_pop("total_mortality")))
+  
 }
 
 # Create a new `shinyApp()` using the above ui and server
