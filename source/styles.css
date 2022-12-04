@@ -13,10 +13,11 @@ h2 {
 }
 
 .chart {
+  padding: 50px;
   border-radius: 25px;
   border-color: black;
-  width: 100px;
-  height: 80px;
+  width: 700px;
+  height: 500px;
 }
 
 #intro h1 {
