@@ -7,7 +7,6 @@ ui <- fluidPage(
   #includeScript("index.js"),
   #includeScript("node_modules/lib/lax.min.js"),
   
-  # A first-level header (`h1()`) with the content "First Shiny Website"
   div(id = "header",
       div(id = "intro",
           h1("Cancer"),
@@ -29,8 +28,6 @@ ui <- fluidPage(
       ),
 
       img("", src = "https://i.pinimg.com/564x/3d/dd/c2/3dddc279a80ed0dee468433be51906b7.jpg"),
-      
-      
   ),
   
   HTML("<hr>"),
