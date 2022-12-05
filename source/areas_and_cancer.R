@@ -48,9 +48,12 @@ ui <- fluidPage(
     )
   ),
   
-  p("[instruction for the interactive map"),
+  p("Cancer rate patterns by state"),
   
-  p("[description for the map and any findings]")
+  p("Developing guidelines, policy, or legislation to strengthen or enhance cancer control efforts.
+  Conducting special studies to advance clinical, epidemiologic, and health services research.
+  Providing information to help state registries improve the quality and usefulness of their 
+  data and to link with other databases.")
 )
 
 # This defines a server that doesn't do anything yet, but is needed to run the app.
