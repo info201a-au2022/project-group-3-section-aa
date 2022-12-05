@@ -60,4 +60,4 @@ server <- function(input, output) {
   })
 }
 # Create a new `shinyApp()` using the above ui and server
-shinyApp(ui = ui, server = server)
+shinyApp(ui = ui, server = server, options = list(height = 1080))
