@@ -21,7 +21,12 @@ ui <- fluidPage(
     plotOutput("mortality_map"),
   ),
   
-  p("maps description goes here"),
+  p("In the first map we can see during the year 1995-2019 the incidence rate of cancer risk
+  in each state within the US. Looking at this map, we notice as the color layout, the west 
+  side of US having a higher incidence rates compared to the other. In the second map we can
+  see during the 1995-2019 the mortality rates caused by cancer we have serveral emphasized on 
+  some of the states  California Florida Texas New York[add more map description]"),
+  
   
   h2("Mortality Rates for Each Cancer Type by State"),
   
