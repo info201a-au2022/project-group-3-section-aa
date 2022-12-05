@@ -77,7 +77,6 @@ female_male()
 sites <- unique(cases_by_sites$sites)
 
 mortality_by_sites <- function(site) {
-  print(site)
   cancer_prop <- cases_by_sites %>% 
     filter(sites == site) 
 

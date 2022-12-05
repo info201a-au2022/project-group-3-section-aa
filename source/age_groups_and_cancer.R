@@ -32,6 +32,10 @@ ui <- fluidPage(
     each gender to study whether there is any relationship between gender and the rates
     of having cancer. [Describe graph]"),
   
+  p("pie chart [add description]"),
+  
+  plotOutput("pie"),
+  
   h2("The Ratio of Different Cancer Types For Each Age Group"),
   
   p("To determine if one age group is more prone to be diagnosed or died from a
@@ -60,9 +64,21 @@ ui <- fluidPage(
 
 # This defines a server that doesn't do anything yet, but is needed to run the app.
 server <- function(input, output) {
-  output$cases_plot <- renderPlot({return(pop_by_age())})
-  output$ratio_plot <- renderPlot({return(pop_age_ratio())})
-  output$gender_plot <- renderPlot({return(female_male())})
+  output$cases_plot <- renderPlot({
+    return(pop_by_age())
+  })
+  
+  output$ratio_plot <- renderPlot({
+    return(pop_age_ratio())
+  })
+  
+  output$gender_plot <- renderPlot({
+    return(female_male())
+  })
+  
+  output$pie <- renderPlot({
+    return(prop_each_sites())
+  })
   
   output$sites_plot <- renderPlotly({
     return(mortality_by_sites(input$site))
