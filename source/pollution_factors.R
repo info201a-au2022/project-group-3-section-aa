@@ -72,6 +72,8 @@ map_co <- function()  {
 
 #scatterplot for each pollutants
 cancer_and_pollution <- left_join(pollution, state_map_df, by = "state")
+cancer_and_pollution <- cancer_and_pollution %>% 
+  na.omit
 
 no2_scatter <- function() {
   p <- plot_ly(cancer_and_pollution,
@@ -108,4 +110,6 @@ co_scatter <- function() {
                mode="markers")
   return(p)
 }
+
+no2_scatter()
 

@@ -29,8 +29,8 @@ ui <- fluidPage(
     sidebarPanel(
       radioButtons("radio", 
                    label = h3("Pollutants"),
-                   choices = list("NO2" = "no2", "SO2" = "so2", "CO" = "co", "O3" = "o3"), 
-                   selected = "no2"),
+                   choices = list("NO2", "SO2", "CO", "O3"), 
+                   selected = "NO2"),
     ),
     
     mainPanel(
@@ -48,11 +48,11 @@ server <- function(input, output) {
   output$map_co <- renderPlot({return(map_co())})
   
   output$scatter <- renderPlot({
-    if (input$radio == "no2") {
+    if (input$radio == "NO2") {
       no2_scatter()
-    } else if (input$radio == "so2") {
+    } else if (input$radio == "SO2") {
       so2_scatter()
-    } else if (input$radio == "o3") {
+    } else if (input$radio == "O3") {
       o3_scatter()
     } else {
       co_scatter()
