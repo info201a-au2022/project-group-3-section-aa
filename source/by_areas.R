@@ -1,5 +1,7 @@
 library(tidyverse)
 library(dplyr)
+library(plotly)
+
 
 master_data <- read.csv("../data/by_areas.csv")
 
@@ -63,7 +65,6 @@ cases_ratio <- left_join(cases_ratio, total_population, by = "state")
 
 ##MAKE AN INTERACTIVE GRAPH THAT ALLOWS USER TO SELECT THE CANCER SITES AND RETURN THE DATA FOR THE
 ##PROP OF MORTALITY CASES FOR EACH STATE FOR THAT SPECIFIC CANCER SITES
-
 #which organ sites cancer make up the majority of the mortality cases in each state?
 
 #calculate the number of mortality cases for each organ sites in each state
@@ -83,6 +84,41 @@ by_organ_sites <- left_join(by_organ_sites, total_mortality_by_state,
 
 by_organ_sites <- by_organ_sites %>% 
   mutate(prop_cases = total / total_mortality)
+
+mortality_by_state <- function(site, map.var) {
+  cancer_prop <- by_organ_sites %>% 
+    filter(organ_sites == site) 
+  # give state boundaries a white border
+  l <- list(color = toRGB("white"), width = 2)
+  
+  # specify some map projection/options
+  g <- list(
+    scope = 'usa',
+    projection = list(type = 'albers usa'),
+    showlakes = TRUE,
+    lakecolor = toRGB('white')
+  )
+  
+  # Make equation for map color / text
+  var.equation <- paste0('~', map.var)
+  
+  # Plot
+  p <- plot_geo(cancer_prop, locationmode = 'USA-states') %>%
+    add_trace(
+      z = cancer_prop[,map.var], text = ~state, locations = ~code,
+      color = cancer_prop[,map.var], colors = 'Purples'
+    ) %>%
+    colorbar(title = "Color Title") %>%
+    layout(
+      title = str_to_title(map.var),
+      geo = g
+    )
+  return(p)
+} 
+
+
+
+
 
 
 
