@@ -1,13 +1,15 @@
 library(shiny)
 
+source("pollution_factors.R")
+
 ui <- fluidPage(
   includeCSS("styles.css"),
   
-  h1("Two Possible Cancer Risk Factors"),
+  h1("A Possible Cancer Risk Factors"),
   
-  p("In an attempt to figure out some risk factors of cancer, we investigate the two
-    datasets, one for pollutions and one for tobacco use in the US to look for any
-    correlation between these factors and the risk of having or dying from cancer."),
+  p("In an attempt to figure out some risk factors of cancer, we investigate a
+    datasets pollutions to look for any correlation between these factors and the
+    risk of having or dying from cancer."),
   
   h2("Pollution"),
   
@@ -23,11 +25,19 @@ ui <- fluidPage(
   plotOutput("map_co"),
   p("We can see from the map co we have Arizona, Colorado,California has more co"),
   
-  h2("Tobacco use"),
-  
-  p("[chart goes here]"),
-  
-  p("[chart description]")
+  sidebarLayout(
+    sidebarPanel(
+      radioButtons("radio", 
+                   label = h3("Pollutants"),
+                   choices = list("NO2" = "no2", "SO2" = "so2", "CO" = "co", "O3" = "o3"), 
+                   selected = "no2"),
+    ),
+    
+    mainPanel(
+      titlePanel("Pollutants and Mortality Rate"),
+      plotlyOutput("scatter"),
+    )
+  ),
 )
 
 # This defines a server that doesn't do anything yet, but is needed to run the app.
@@ -37,6 +47,17 @@ server <- function(input, output) {
   output$map_so2 <- renderPlot({return(map_so2())})
   output$map_co <- renderPlot({return(map_co())})
   
+  output$scatter <- renderPlot({
+    if (input$radio == "no2") {
+      no2_scatter()
+    } else if (input$radio == "so2") {
+      so2_scatter()
+    } else if (input$radio == "o3") {
+      o3_scatter()
+    } else {
+      co_scatter()
+    }
+  })
 }
 # Create a new `shinyApp()` using the above ui and server
 shinyApp(ui = ui, server = server)

@@ -1,5 +1,7 @@
 library(shiny)
 
+source("by_area_map.R")
+
 ui <- fluidPage(
   includeCSS("styles.css"),
   
@@ -30,7 +32,21 @@ ui <- fluidPage(
   
   h2("Mortality Rates for Each Cancer Type by State"),
   
-  p("[interactive map goes here]"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput(
+        "sites",
+        label = "Cancer Sites",
+        choices = unique(cases_by_sites$sites),
+        selected = "Brain and Other Nervous System"
+      )
+    ),
+    
+    mainPanel(
+      titlePanel("Mortality Rate by Cancer Sites in a State"),
+      plotlyOutput("map"),
+    )
+  ),
   
   p("[instruction for the interactive map"),
   
@@ -39,8 +55,17 @@ ui <- fluidPage(
 
 # This defines a server that doesn't do anything yet, but is needed to run the app.
 server <- function(input, output) {
-  output$incidence_map <- renderPlot(return(map_total_pop("incidence_ratio")))
-  output$mortality_map <- renderPlot(return(map_total_pop("total_mortality")))
+  output$incidence_map <- renderPlot({
+    return(map_total_pop("incidence_ratio"))
+  })
+  
+  output$mortality_map <- renderPlot({
+    return(map_total_pop("total_mortality"))
+  })
+  
+  output$map <- renderPlotly({
+    return(mortality_by_state(input$sites))
+  })
   
 }
 

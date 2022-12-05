@@ -72,16 +72,15 @@ female_male()
 
 ##MAKE AN INTERACTIVE GRAPH THAT ALLOWS USER TO SELECT THE AGE GROUP AND RETURN THE DATA FOR THE
 ##PROP OF MORTALITY CASES FOR EACH CANCER SITES FOR THAT SPECIFIC AGE GROUP
-mortality_by_sites <- function() {
-  prop <- ggplot(cases_by_sites, aes(x = age_group, y = prop)) + 
-    geom_bar(stat = "identity") + 
-    scale_y_continuous(labels = scales::comma) +
-    labs(
-      x = "age group",
-      y = "properties of motality cases",
-      title = "properties of mortality cases for each sites by age group"
-    )
+mortality_by_sites <- function(site) {
+  cancer_prop <- cases_by_sites %>% 
+    filter(sites == site) 
+  
+  prop <- plot_ly(cancer_prop,
+                  x = ~age_group,
+                  y = ~prop,
+                  name = "Proportion of mortality cases for each sites by age group",
+                  type = "bar"
+  )
   return(prop)
 }
-
-mortality_by_sites()
