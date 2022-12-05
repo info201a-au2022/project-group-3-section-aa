@@ -116,6 +116,7 @@ mortality_by_state <- function(site, map.var) {
   return(p)
 } 
 
+mortality_by_state("Cervix", map.var = "")
 
 
 
