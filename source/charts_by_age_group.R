@@ -1,8 +1,6 @@
 library(ggplot2)
 library(dplyr)
 library(tidyverse)
-library(plotly)
-library(stringr)
 
 source("by_age_group.R")
 
@@ -57,7 +55,7 @@ prop_each_sites <- function() {
 
 prop_each_sites()
 
-#stacked bar chart of total_cases for female and male
+#grouped bar chart of total_cases for female and male
 female_male <- function() {
   gender_chart <- ggplot(cases_by_gender, aes(fill = gender, y = prop, x = age_group))  + 
     geom_bar(position="dodge", stat="identity") +
@@ -74,17 +72,16 @@ female_male()
 
 ##MAKE AN INTERACTIVE GRAPH THAT ALLOWS USER TO SELECT THE AGE GROUP AND RETURN THE DATA FOR THE
 ##PROP OF MORTALITY CASES FOR EACH CANCER SITES FOR THAT SPECIFIC AGE GROUP
-sites <- unique(cases_by_sites$sites)
-
-mortality_by_sites <- function(site) {
-  cancer_prop <- cases_by_sites %>% 
-    filter(sites == site) 
-
-  prop <- plot_ly(cancer_prop,
-    x = ~age_group,
-    y = ~prop,
-    name = "Proportion of mortality cases for each sites by age group",
-    type = "bar"
-  )
+mortality_by_sites <- function() {
+  prop <- ggplot(cases_by_sites, aes(x = age_group, y = prop)) + 
+    geom_bar(stat = "identity") + 
+    scale_y_continuous(labels = scales::comma) +
+    labs(
+      x = "age group",
+      y = "properties of motality cases",
+      title = "properties of mortality cases for each sites by age group"
+    )
   return(prop)
 }
+
+mortality_by_sites()
