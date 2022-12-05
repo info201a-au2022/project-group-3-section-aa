@@ -1,6 +1,7 @@
 library(ggplot2)
 library(dplyr)
 library(usmap)
+library(plotly)
 
 pollution <- read.csv("../data/pollution_factors.csv")
 View(pollution)
@@ -83,3 +84,13 @@ map_co <- function()  {
   return(plot)
 } 
 map_co()
+
+
+#scatterplot for each pollutants
+cancer_and_pollution <- left_join(pollution, state_map_df, by = "state")
+
+build_scatter <- function(pollutant, cancer_rate) {
+  scatter <- ggplot(cancer_and_pollution, aes(x = no2, total_mortality)) +
+    geom_point()
+  return(scatter)
+}
