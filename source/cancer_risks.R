@@ -47,15 +47,15 @@ server <- function(input, output) {
   output$map_so2 <- renderPlot({return(map_so2())})
   output$map_co <- renderPlot({return(map_co())})
   
-  output$scatter <- renderPlot({
+  output$scatter <- renderPlotly({
     if (input$radio == "NO2") {
-      no2_scatter()
+      return(no2_scatter())
     } else if (input$radio == "SO2") {
-      so2_scatter()
+      return(so2_scatter())
     } else if (input$radio == "O3") {
-      o3_scatter()
+      return(o3_scatter())
     } else {
-      co_scatter()
+      return(co_scatter())
     }
   })
 }
