@@ -22,7 +22,12 @@ ui <- fluidPage(
     have a big data that was collected from 1999-2016, with 27 types of cancer cites combined, variations
     might appear."),
   
-  p("[third summary goes here]"),
+  p("Our project is not only to find out if cancer is related to age and gender. We also want to delve into 
+  the information related to cancer through more intuitive and easy-to-change habits and living environments.
+  We also want to find out whether the living environment is related to local chemical pollution, and to determine
+  which kind of pollution is more important for cancer. In terms of lifestyle habits, whether tobacco aggravates 
+  cancer. This will give people more visual information and allow users to participate in the comparison of pictures
+  to understand and check the factors of cancer and thus reduce the mortality rate of cancer."),
   
   h2("Report"),
   

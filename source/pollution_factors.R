@@ -18,7 +18,7 @@ pollution_no2()
 map_no2 <- function()  {
   plot <- plot_usmap(data = pollution_no2(), values = "no2", color = "blue") +
     scale_fill_continuous(
-      low = "white", high = "red", name = "no2 cases in state", label = scales::comma) +
+      low = "white", high = "purple", name = "no2 cases in state", label = scales::comma) +
     theme(legend.position = "right") +
     labs(title = "no2 cases in state",
          caption = "A map that indicates how pollution no2 effect cancer in state looks like")
