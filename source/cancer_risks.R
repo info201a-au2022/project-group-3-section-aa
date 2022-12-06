@@ -13,18 +13,31 @@ ui <- fluidPage(
   
   h2("Pollution"),
   
-  p("For pollution, we present four maps which will mainly foucus on how each states of the 
-    US being covered with all the pollustions like o3,no2, so2, co"),
+  p("The air we breathe every day has a mixture of pollutants that are invisible 
+  to the naked eye, invisible pollutants from our living environment and workplace, 
+  and some natural risks that have a huge impact on our health. In some cases it can 
+  lead to cancer.For pollution, we present four maps which will mainly foucus on how 
+  each states of the US being covered with all the pollustions like o3,no2, so2, co"),
   
   plotOutput("map_o3"),
-  p("We can see from the map o3 we have Nevada, Utah, Wyoming, Tennessee and North Carolina, Missouri, Indiana has more o3"),
+  p("O3 (Ozone) caused by the car gas fixed in the air would cause breathing difficulties
+    which woule lead to cancer. In the mapO3 we have Nevada, Utah, Wyoming, Tennessee 
+    and North Carolina, Missouri, Indiana has more o3"),
   plotOutput("map_no2"),
-  p("We can see from the map no2 we have Arizona, Colorado, Wisconsin, Michigan and New York has more no2"),
+  p("No2(Nitrogen Dioxide) gets in the air by burning fuel. Breathing air have a higher
+    concentration would damage human respiratory system.We can see from the map no2 we 
+    have Arizona, Colorado, Wisconsin, Michigan and New York has more no2"),
   plotOutput("map_so2"),
-  p("We can see from the map so2 we have Missouri, Indiana has more so2"),
+  p("So2(Sulfur dioxide) as a air pollutant which will irritates the skin and mucous
+  membranes of eyes, nose,throat, and lungs We can see from the map so2 we have Missouri, 
+  Indiana has more so2"),
   plotOutput("map_co"),
-  p("We can see from the map co we have Arizona, Colorado,California has more co"),
+  p("Co (Carbon Monoxide) as a poisonous, colorless, odorless gas in the air. Co has the 
+    ability that to blend into blood transforming in huamn body, reducing the ability of blood
+    to carry oxygen.We can see from the map co we have Arizona, Colorado,California has more co"),
   
+  
+  p("Select the pollutants that you want to see how it related to the cancer Mortality rate"),
   sidebarLayout(
     sidebarPanel(
       radioButtons("radio", 
@@ -39,6 +52,12 @@ ui <- fluidPage(
     )
   ),
 )
+
+  p("Some of the above-mentioned contaminants used in U.S. workplaces and released
+    into the environment are carcinogenic and contribute to causing cancer. In addition, 
+    some of these chemicals are known or suspected to induce cancer in multiple organs. 
+    We hope that state governments will focus on more energy-efficient ways to keep these 
+    cancer-causing factors under control.")
 
 # This defines a server that doesn't do anything yet, but is needed to run the app.
 server <- function(input, output) {
