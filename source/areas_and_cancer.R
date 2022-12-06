@@ -2,7 +2,7 @@ library(shiny)
 
 source("by_area_map.R")
 
-ui <- fluidPage(
+areas_page <- fluidPage(
   includeCSS("styles.css"),
   
   h1("Geographic Areas and Cancer in the US"),
@@ -42,8 +42,8 @@ ui <- fluidPage(
   has the highest cancer mortality rate compare to Florida, Texas, New York where they are
   also have a higher rate of cancer mortality rate.[Note : The rankingsby state do not take 
   into account specific demographic characteristics of other states that may affect
-  mortality levels.]"),
-
+  mortality levels."),
+  
   
   h2("Mortality Rates for Each Cancer Type by State"),
   
@@ -72,24 +72,11 @@ ui <- fluidPage(
   guidelines, policy, or legislation to strengthen or enhance cancer control efforts.
   Conducting special studies to advance clinical, epidemiologic, and health services 
   research. Providing information to help state registries improve the quality and usefulness
-  of their data and to link with other databases.")
+  of their data and to link with other databases."),
+  
+  p("Developing guidelines, policy, or legislation to strengthen or enhance cancer control efforts.
+  Conducting special studies to advance clinical, epidemiologic, and health services research.
+  Providing information to help state registries improve the quality and usefulness of their 
+  data and to link with other databases.")
 )
 
-# This defines a server that doesn't do anything yet, but is needed to run the app.
-server <- function(input, output) {
-  output$incidence_map <- renderPlot({
-    return(map_total_pop("incidence_ratio"))
-  })
-  
-  output$mortality_map <- renderPlot({
-    return(map_total_pop("total_mortality"))
-  })
-  
-  output$map <- renderPlotly({
-    return(mortality_by_state(input$sites))
-  })
-  
-}
-
-# Create a new `shinyApp()` using the above ui and server
-shinyApp(ui = ui, server = server, options = list(height = 1080))

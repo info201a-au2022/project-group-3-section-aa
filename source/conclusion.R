@@ -1,6 +1,6 @@
 library(shiny)
 
-ui <- fluidPage(
+conclusion <- fluidPage(
   includeCSS("styles.css"),
   
   h1("Primary Takeaway"),
@@ -33,11 +33,3 @@ ui <- fluidPage(
   
   p("[summarize P1 + P2]")
 )
-
-# This defines a server that doesn't do anything yet, but is needed to run the app.
-server <- function(input, output) {
-  # Will be next!
-}
-
-# Create a new `shinyApp()` using the above ui and server
-shinyApp(ui = ui, server = server)

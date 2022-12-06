@@ -5,42 +5,18 @@ library(dplyr)
 library(ggplot2)
 library(plotly)
 
-intro_page <- tabPanel(
-  "Overview",
-  source("./intro_page.R", local = TRUE)$value
-)
 
-interactive1 <- tabPanel(
-  "Age Group",
-  source("./age_groups_and_cancer.R", local = TRUE)$value
-)
 
-interactive2 <- tabPanel(
-  "Geographic Areas",
-  source("./areas_and_cancer.R", local = TRUE)$value
-)
+# Load libraries so they are available
+library("shiny")
 
-interactive3 <- tabPanel(
-  "Cancer Risks",
-  source("./cancer_risks.R", local = TRUE)$value
-)
+# Use source() to execute the `app_ui.R` and `app_server.R` files. These will
+# define the UI value and server function respectively.
+source("app_ui.R")
+source("app_server.R")
 
-conclusion_page <- tabPanel(
-  "Conclusion",
-  source("./conclusion.R", local = TRUE)$value
-)
+# You will need to fill in the `app_ui.R` file to create the layout.
+# Run the app through this file.
 
-ui <- navbarPage(
-  "Cancer",
-  intro_page,
-  interactive1,
-  interactive2,
-  interactive3,
-  conclusion_page
-)
-
-server <- function(input, output, session) {
-  
-}
-
-shinyApp(ui = ui, server = server, options = list(height = 1080))
+# Create a new `shinyApp()` using the loaded `ui` and `server` variables
+shinyApp(ui = ui, server = server)

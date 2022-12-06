@@ -3,13 +3,11 @@ library(plotly)
 
 source("charts_by_age_group.R")
 
-ui <- fluidPage(
-  includeCSS("styles.css"),
-  
+age_page <- fluidPage(
   h1("Age Groups and Cancer"),
   
   div(class = "chart",
-    plotOutput("cases_plot")
+      plotOutput("cases_plot")
   ),
   
   div(class = "chart",
@@ -75,29 +73,3 @@ ui <- fluidPage(
     )
   )
 )
-
-# This defines a server that doesn't do anything yet, but is needed to run the app.
-server <- function(input, output) {
-  output$cases_plot <- renderPlot({
-    return(pop_by_age())
-  })
-  
-  output$ratio_plot <- renderPlot({
-    return(pop_age_ratio())
-  })
-  
-  output$gender_plot <- renderPlot({
-    return(female_male())
-  })
-  
-  output$pie <- renderPlot({
-    return(prop_each_sites())
-  })
-  
-  output$sites_plot <- renderPlotly({
-    return(mortality_by_sites(input$site))
-  })
-}
-
-# Create a new `shinyApp()` using the above ui and server
-shinyApp(ui = ui, server = server, options = list(height = 1080))
