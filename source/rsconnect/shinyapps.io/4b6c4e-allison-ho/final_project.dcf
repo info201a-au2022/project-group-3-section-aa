@@ -5,10 +5,9 @@ account: 4b6c4e-allison-ho
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 7814851
-bundleId: 6595165
+bundleId: 6601383
 url: https://4b6c4e-allison-ho.shinyapps.io/final_project/
-when: 1670265885.79055
-lastSyncTime: 1670265885.79063
+when: 1670366405.16217
+lastSyncTime: 1670366405.16236
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: by_age_group.R|by_area_map.R|by_areas.R|by_races.R|by_year.R|cancer_map.R|cell.jpeg|charts_by_age_group.R|data_access.R|female_only.R|helper_func.R|index.js|package-lock.json|package.json|pollution_factors.R|README.md|smoking_factor.R|styles.css|Summary.R|table.R

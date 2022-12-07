@@ -55,5 +55,5 @@ risks_page <- fluidPage(
       titlePanel("Pollutants and Mortality Rate"),
       plotlyOutput("scatter"),
     )
-  ),
+  )
 )
