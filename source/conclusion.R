@@ -15,7 +15,7 @@ conclusion <- fluidPage(
   p("Our research tells us that there is gender differences in cancer suseceptibility. In childhood 
     cancer, there are no significant difference between male and female. In genenal, Females tend to
     have a higher risk in developing cancer, Accodring to our data from John Snow Labs.The rates 
-    are per 100,000 persons, indicating the most vulnerable age group to be 40-45. The results are 
+    are per 100,000 persons, indicating the most vulnerable age group at risk to be 40-45. The results are 
     age-adjusted to the 2000 U.S. standard population. Our research is a little suprsing because the
     Internet has posted articles about males are at higher risk than females for cancer. However,
     our research shows complitely oppsite result, this variation might be due to the fact that we
@@ -31,5 +31,14 @@ conclusion <- fluidPage(
   
   h2("Report"),
   
-  p("[summarize P1 + P2]")
+  p("In conclusion, these data are use to understand cancer population growth, cancer burden and trends,
+     support cancer research, mesure progress in cancer control, environmental factors encorcement, mesure
+    cancer prevention efforts, target action on eliminating disparities, and improve cancer outcomes for all.
+    The interative data visualizations tool makes it easy for people to access to and check the latest update
+    of cancer related informations, making resources easy for anyone to explore and use. The map visualizations
+    allow us to view rates of cancers or cancer mortality for the entire United States and individual states. Our
+    demographics charts allow people to see rates or numbers of cancers groth by sex, and age group for all cancer
+    types combined for 27 types of cancers. Additionally, we generated county-level model-based estimates for 4 
+    cancer risk factors. The scatter visuliazation give a sense of how different potential risk
+    factors affect people's health conditions over time. ")
 )
