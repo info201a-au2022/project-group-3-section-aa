@@ -262,7 +262,11 @@ conclusion_page <- tabPanel(
   
   h2("Report"),
   
-  p("[summarize P1 + P2]")
+  p("In conclusion, these data are use to understand cancer population growth, cancer burden and trends,
+     support cancer research, mesure progress in cancer control, environmental factors encorcement, mesure
+    cancer prevention efforts, target action on eliminating disparities, and improve cancer outcomes for all.
+    The interative data visualizations tool makes it easy for people to access to and check the latest update
+    of cancer related informations, making resources easy for anyone to explore and use. ")
 )
 
 ui <- navbarPage(
