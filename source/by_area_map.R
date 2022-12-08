@@ -4,7 +4,7 @@ library(usmap)
 
 
 
-source("../source/by_areas.R")
+source("by_areas.R")
 #MainStates <- map_data("incidence_cases")
 
 state <- data.frame(state.name) %>% 
@@ -29,7 +29,7 @@ state <- data.frame(state.name) %>%
 
 state_df <- left_join(state, by_organ_sites, by = "state")
 
-state_codes <- read.csv('../data/state_codes.csv', stringsAsFactors = FALSE)
+state_codes <- read.csv('data/state_codes.csv', stringsAsFactors = FALSE)
 joined_data <- left_join(state_codes, state_df, by="state")
 
 mortality_by_state <- function(site) {
