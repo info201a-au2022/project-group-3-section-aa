@@ -1,8 +1,6 @@
 library(shiny)
 
 conclusion <- fluidPage(
-  includeCSS("styles.css"),
-  
   h1("Primary Takeaway"),
   
   h2("Summary"),

@@ -56,20 +56,5 @@ age_page <- fluidPage(
     and the mortality rate."),
   
   p("Instruction for the interactive graph"),
-  
-  sidebarLayout(
-    sidebarPanel(
-      selectInput(
-        "site",
-        label = "Cancer Sites",
-        choices = unique(cases_by_sites$sites),
-        selected = "Brain and Other Nervous System"
-      )
-    ),
-    
-    mainPanel(
-      titlePanel("Mortality Rate by Cancer Sites"),
-      plotlyOutput("sites_plot"),
-    )
-  )
+
 )

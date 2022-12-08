@@ -3,8 +3,6 @@ library(shiny)
 source("pollution_factors.R")
 
 risks_page <- fluidPage(
-  includeCSS("styles.css"),
-  
   h1("A Possible Cancer Risk Factors"),
   
   p("In an attempt to figure out some risk factors of cancer, we investigate a

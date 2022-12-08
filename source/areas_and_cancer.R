@@ -3,8 +3,6 @@ library(shiny)
 source("by_area_map.R")
 
 areas_page <- fluidPage(
-  includeCSS("styles.css"),
-  
   h1("Geographic Areas and Cancer in the US"),
   
   p("To determine whether a state has the possibility of being a cancer cluster, we

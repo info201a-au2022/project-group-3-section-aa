@@ -5,7 +5,6 @@ library(usmap)
 
 
 source("by_areas.R")
-#MainStates <- map_data("incidence_cases")
 
 state <- data.frame(state.name) %>% 
   rename(state = state.name)
@@ -21,8 +20,6 @@ map_total_pop <- function(param)  {
          caption = "A map that indicates how the cancer rate for the population in each state from 1995-2019")
   return(plot)
 } 
-
-map_total_pop("total_mortality")
 
 state <- data.frame(state.name) %>% 
   rename(state = state.name)

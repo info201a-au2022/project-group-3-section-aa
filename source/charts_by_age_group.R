@@ -21,8 +21,6 @@ pop_by_age <- function() {
   return(pop_chart)
 }
 
-pop_by_age()
-
 #bar graph of ratio by age
 pop_age_ratio <- function() {
   ratio_chart <- ggplot(cases_in_groups, aes(x = age_group, y = ratio)) + 
@@ -35,8 +33,6 @@ pop_age_ratio <- function() {
     )
   return(ratio_chart)
 }
-
-pop_age_ratio()
 
 #pie chart of prop by each sites 
 total_cases_by_sites <- cases_by_sites %>%
@@ -53,7 +49,6 @@ prop_each_sites <- function() {
   return(prop_chart)
 }
 
-prop_each_sites()
 
 #grouped bar chart of total_cases for female and male
 female_male <- function() {
@@ -67,8 +62,6 @@ female_male <- function() {
     )
   return(gender_chart)
 }
-
-female_male()
 
 ##MAKE AN INTERACTIVE GRAPH THAT ALLOWS USER TO SELECT THE AGE GROUP AND RETURN THE DATA FOR THE
 ##PROP OF MORTALITY CASES FOR EACH CANCER SITES FOR THAT SPECIFIC AGE GROUP

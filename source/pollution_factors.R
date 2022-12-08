@@ -111,5 +111,3 @@ co_scatter <- function() {
   return(p)
 }
 
-no2_scatter()
-
