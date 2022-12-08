@@ -2,7 +2,7 @@ library(dplyr)
 library(tidyverse)
 library(ggplot2)
 
-age_data <- read.csv("../data/by_age_groups.csv")
+age_data <- read.csv("data/by_age_groups.csv")
 
 by_age <- age_data %>% 
   select(Age_Group, Gender, Count_of_People_Diagnosed_With_Cancer, Cancer_Event_Type, 

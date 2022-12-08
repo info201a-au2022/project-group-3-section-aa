@@ -3,7 +3,7 @@ library(dplyr)
 library(usmap)
 library(plotly)
 
-pollution <- read.csv("../data/pollution_factors.csv")
+pollution <- read.csv("data/pollution_factors.csv")
 
 #Code for Graph goes here
 pollution_no2<- function() {

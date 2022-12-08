@@ -3,7 +3,7 @@ library(dplyr)
 library(plotly)
 
 
-master_data <- read.csv("../data/by_areas.csv")
+master_data <- read.csv("data/by_areas.csv")
 
 #CLEAN UP DATASET#
 areas_data <- master_data  %>% 

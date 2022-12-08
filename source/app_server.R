@@ -1,4 +1,5 @@
 #server.R
+library(shiny)
 source("charts_by_age_group.R")
 source("by_area_map.R")
 source("pollution_factors.R")
