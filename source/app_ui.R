@@ -5,8 +5,8 @@ library(ggplot2)
 library(plotly)
 
 intro_page <- tabPanel(
-  includeCSS("styles.css"),
   "Overview",
+  includeCSS("styles.css"),
   div(id = "header",
     div(id = "intro",
       h1("Cancer"),
